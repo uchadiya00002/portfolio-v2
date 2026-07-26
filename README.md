@@ -54,8 +54,8 @@ Before you begin, ensure you have the following installed:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/DEVANGKUSHWAH/Devang-Kushwah-portfolio-nextjs.git
-   cd Devang-Kushwah-portfolio-nextjs
+   git clone https://github.com/uchadiya00002/portfolio-v2.git
+   cd portfolio-v2
    ```
 
 2. **Install dependencies**
@@ -103,7 +103,7 @@ npm run start
 ## 📁 Project Structure
 
 ```
-devang-portfolio/
+portfolio-v2/
 ├── public/
 │   ├── images/          # Image assets
 │   └── resume/          # Resume PDF files
@@ -123,6 +123,7 @@ devang-portfolio/
 │       ├── skill-icons.tsx    # Skill icon mappings
 │       └── utils.ts           # Utility functions
 ├── next.config.mjs     # Next.js configuration
+├── vercel.json         # Vercel deployment configuration
 ├── tailwind.config.ts  # Tailwind CSS configuration
 ├── tsconfig.json       # TypeScript configuration
 └── package.json        # Dependencies and scripts
@@ -171,7 +172,11 @@ Place images in `public/images/` and reference them in your data files:
 The project is configured for static export in `next.config.mjs`:
 - `output: 'export'` - Enables static site generation
 - `images.unoptimized: true` - Required for static export
-- `trailingSlash: true` - Better compatibility with static hosting
+- `trailingSlash: true` - Optional: helps with static hosting
+
+### Deployment
+
+The project includes a `vercel.json` for deployment on [Vercel](https://vercel.com/).
 
 ### Environment Variables
 
@@ -202,11 +207,11 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Avinash Uchadiya**
 
-- Website: [avinashuchadiy.com](https://devangkushwah.onrender.com/)
-- LinkedIn: [devang-kushwah-6535a0175](https://www.linkedin.com/in/devang-kushwah-6535a0175/)
-- GitHub: [@DEVANGKUSHWAH](https://github.com/DEVANGKUSHWAH)
-- Twitter/X: [@DVngKuhwh1](https://x.com/DVngKuhwh1)
-- Instagram: [@devang._.k30](https://www.instagram.com/devang._.k30/)
+- Website: [avinashuchadiya.vercel.app](https://avinashuchadiya.vercel.app/)
+- LinkedIn: [avinashuchadiya](https://www.linkedin.com/in/avinashuchadiya/)
+- GitHub: [@uchadiya00002](https://github.com/uchadiya00002)
+- Twitter/X: [@UchadiyaAvinash](https://x.com/UchadiyaAvinash)
+- Instagram: [@nautankii.saala](https://www.instagram.com/nautankii.saala/)
 
 ## 🙏 Acknowledgments
 
