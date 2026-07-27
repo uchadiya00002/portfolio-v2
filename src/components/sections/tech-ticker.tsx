@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { techTicker } from "@/data/portfolio-data";
 
 export function TechTicker() {
@@ -9,15 +6,7 @@ export function TechTicker() {
 
   return (
     <div className="py-8 overflow-hidden border-y border-border bg-secondary/20">
-      <motion.div
-        className="flex gap-8 whitespace-nowrap"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{
-          duration: 30,
-          ease: "linear",
-          repeat: Infinity,
-        }}
-      >
+      <div className="flex gap-8 whitespace-nowrap animate-ticker">
         {items.map((tech, index) => (
           <div
             key={index}
@@ -27,7 +16,7 @@ export function TechTicker() {
             <span className="text-sm font-medium">{tech}</span>
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }

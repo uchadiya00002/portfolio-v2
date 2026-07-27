@@ -29,10 +29,12 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const sections = navLinks.map((link) => link.href.substring(1));
+    let ticking = false;
+
+    const updateScrollState = () => {
       setScrolled(window.scrollY > 20);
 
-      const sections = navLinks.map((link) => link.href.substring(1));
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = document.getElementById(sections[i]);
         if (section) {
@@ -43,9 +45,17 @@ export function Navbar() {
           }
         }
       }
+      ticking = false;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(updateScrollState);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

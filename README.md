@@ -7,7 +7,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 - **Modern Design**: Clean, professional design with smooth animations
 - **Dark/Light Mode**: Built-in theme switcher with system preference detection
 - **Fully Responsive**: Optimized for all devices (mobile, tablet, desktop)
-- **Performance Optimized**: Static site generation for fast loading times
+- **Performance Optimized**: Automatic image optimization (AVIF/WebP) and server rendering via Vercel
 - **SEO Friendly**: Optimized metadata and semantic HTML
 - **Interactive Sections**:
   - Hero section with animated stats
@@ -46,7 +46,7 @@ A modern, responsive portfolio website built with Next.js, TypeScript, and Tailw
 
 Before you begin, ensure you have the following installed:
 - **Node.js** (v18 or higher)
-- **npm** or **yarn** or **pnpm**
+- **pnpm** (recommended — this project uses a `pnpm-lock.yaml`)
 
 ## 🚀 Getting Started
 
@@ -60,10 +60,6 @@ Before you begin, ensure you have the following installed:
 
 2. **Install dependencies**
    ```bash
-   npm install
-   # or
-   yarn install
-   # or
    pnpm install
    ```
 
@@ -72,10 +68,6 @@ Before you begin, ensure you have the following installed:
 Run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
 ```
 
@@ -83,21 +75,19 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 
 ### Building for Production
 
-Build the static site:
-
 ```bash
-npm run build
+pnpm build
 ```
 
-This will create an `out` directory with all static files ready for deployment.
+This builds the app with Next.js's standard server runtime (`.next` directory), which Vercel deploys directly.
 
 ### Preview Production Build
 
 To preview the production build locally:
 
 ```bash
-npm run build
-npm run start
+pnpm build
+pnpm start
 ```
 
 ## 📁 Project Structure
@@ -160,27 +150,24 @@ Place images in `public/images/` and reference them in your data files:
 
 ## 📝 Available Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production (creates `out` directory)
-- `npm run start` - Start production server (requires build first)
-- `npm run lint` - Run ESLint
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production (`.next` directory)
+- `pnpm start` - Start production server (requires build first)
+- `pnpm lint` - Run ESLint
 
 ## 🔧 Configuration
 
-### Static Export
+### Image Optimization
 
-The project is configured for static export in `next.config.mjs`:
-- `output: 'export'` - Enables static site generation
-- `images.unoptimized: true` - Required for static export
-- `trailingSlash: true` - Optional: helps with static hosting
+`next.config.mjs` enables Next.js's built-in image optimization (`next/image`), which serves resized AVIF/WebP images on demand instead of the original files. This requires the Next.js server runtime (not static export), which is what Vercel provides.
 
 ### Deployment
 
-The project includes a `vercel.json` for deployment on [Vercel](https://vercel.com/).
+The project includes a `vercel.json` for deployment on [Vercel](https://vercel.com/), using Vercel's native Next.js runtime (not a static export).
 
 ### Environment Variables
 
-No environment variables are required for this static site.
+No environment variables are required.
 
 ## 📱 Browser Support
 
