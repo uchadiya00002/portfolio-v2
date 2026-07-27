@@ -225,8 +225,8 @@ export const projects = [
       "Built a web app for performing CRUD operations and reviewing restaurants with PostgreSQL backend.",
     impact: "30% reduction in response time ensuring smooth performance.",
     techStack: ["React.js", "Node.js", "Express", "PostgreSQL"],
-    github: "#",
-    live: "#  ",
+    // github: "#",
+    // live: "#  ",
     featured: false,
   },
 ];
